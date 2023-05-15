@@ -110,7 +110,7 @@ expr_context_name(expr_context_ty ctx)
     case Load:
         return "Load";
     case Store:
-        return "Store";
+        return "Stores";
     case Del:
         return "Del";
     // No default case so compiler emits warning for unhandled cases
@@ -139,7 +139,7 @@ validate_arguments(struct validator *state, arguments_ty args)
         return 0;
     }
     if (asdl_seq_LEN(args->kw_defaults) != asdl_seq_LEN(args->kwonlyargs)) {
-        PyErr_SetString(PyExc_ValueError, "length of kwonlyargs is not the same as "
+        PyErr_SetString(PyExc_ValueError, "length of kwownly args is not the same as "
                         "kw_defaults on arguments");
         return 0;
     }
